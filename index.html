@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula Prática — Opacidade & Sombras</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Opacidade &amp; Sombras em CSS</h1>
+  <p class="subtitle">Aula Prática — passe o mouse sobre os elementos para ver as interações</p>
+
+  <div class="grid">
+
+    <!-- BLOCO 1: opacity -->
+    <section class="section">
+      <h2>1 · Propriedade opacity</h2>
+      <div class="opacity-demo">
+        <div class="opacity-box op-100">1.0</div>
+        <div class="opacity-box op-75">0.75</div>
+        <div class="opacity-box op-50">0.50</div>
+        <div class="opacity-box op-25">0.25</div>
+        <div class="opacity-box op-10">0.10</div>
+      </div>
+      <!--
+        opacity afeta o elemento INTEIRO (incluindo filhos).
+        Valores: 0 (invisível) → 1 (opaco)
+      -->
+    </section>
+
+    <!-- BLOCO 2: RGBA -->
+    <section class="section">
+      <h2>2 · Cores RGBA</h2>
+      <div class="rgba-demo">
+        <div class="rgba-bar rgba-1">rgba(255, 70, 70, 0.90)</div>
+        <div class="rgba-bar rgba-2">rgba(255, 140, 50, 0.70)</div>
+        <div class="rgba-bar rgba-3">rgba(60, 180, 100, 0.50)</div>
+        <div class="rgba-bar rgba-4">rgba(50, 120, 255, 0.30)</div>
+        <div class="rgba-bar rgba-5">rgba(150, 50, 255, 0.15)</div>
+      </div>
+      <!--
+        RGBA = Red, Green, Blue, Alpha
+        Só o fundo é transparente — o texto permanece intacto.
+      -->
+    </section>
+
+    <!-- BLOCO 3: HSLA -->
+    <section class="section">
+      <h2>3 · Cores HSLA</h2>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:14px;">
+        Mesma cor (H=210°), só o canal Alpha muda
+      </p>
+      <div class="hsla-demo">
+        <div class="hsla-chip h1">α 0.9</div>
+        <div class="hsla-chip h2">α 0.7</div>
+        <div class="hsla-chip h3">α 0.5</div>
+        <div class="hsla-chip h4">α 0.3</div>
+        <div class="hsla-chip h5">α 0.1</div>
+      </div>
+      <!--
+        HSLA = Hue (0-360°), Saturation (%), Lightness (%), Alpha
+        Mais intuitivo para variar transparência mantendo a mesma cor.
+      -->
+    </section>
+
+    <!-- BLOCO 4: box-shadow -->
+    <section class="section">
+      <h2>4 · box-shadow</h2>
+      <div class="shadow-demo">
+        <div class="shadow-card s1">
+          box-shadow: 0 2px 6px rgba(0,0,0,0.3) — passe o mouse
+        </div>
+        <div class="shadow-card s2">
+          box-shadow colorida: rgba(78,168,255,0.4) — passe o mouse
+        </div>
+        <div class="shadow-card s3">
+          inset 0 3px 8px rgba(0,0,0,0.5) — sombra interna
+        </div>
+        <div class="shadow-card s4">
+          múltiplas sombras (2px + 8px + anel)
+        </div>
+      </div>
+      <!--
+        Sintaxe: offset-x | offset-y | blur | spread | cor
+        "inset" coloca a sombra para dentro do elemento.
+        Separe múltiplas sombras por vírgula.
+      -->
+    </section>
+
+    <!-- BLOCO 5: text-shadow -->
+    <section class="section">
+      <h2>5 · text-shadow</h2>
+      <div class="textshadow-demo">
+        <p class="ts-example ts-classic">Sombra Clássica</p>
+        <p class="ts-example ts-neon">Efeito Neon</p>
+        <p class="ts-example ts-emboss">Efeito Relevo</p>
+        <p class="ts-example ts-long">Brilho Profundo</p>
+      </div>
+      <!--
+        Sintaxe: offset-x | offset-y | blur | cor
+        Sem parâmetros "spread" e "inset" (diferente de box-shadow).
+        Múltiplas sombras separadas por vírgula = efeitos complexos.
+      -->
+    </section>
+
+    <!-- BLOCO 6: Glassmorphism (combinação) -->
+    <section class="section">
+      <h2>6 · Glassmorphism (combinação)</h2>
+      <div class="glass-wrapper">
+        <div class="glass-card">
+          <div class="icon">🎨</div>
+          <div class="label">Design</div>
+        </div>
+        <div class="glass-card">
+          <div class="icon">💻</div>
+          <div class="label">Código</div>
+        </div>
+        <div class="glass-card">
+          <div class="icon">✨</div>
+          <div class="label">Efeitos</div>
+        </div>
+        <div class="glass-card">
+          <div class="icon">🚀</div>
+          <div class="label">Deploy</div>
+        </div>
+      </div>
+      <!--
+        Glassmorphism = rgba (fundo) + backdrop-filter blur + box-shadow + borda rgba
+        Hover aumenta a opacidade do fundo e intensifica a sombra.
+      -->
+    </section>
+
+    <!-- BLOCO 7: Overlay -->
+    <section class="section">
+      <h2>7 · Overlay com RGBA</h2>
+      <div class="overlay-demo">
+        <div class="overlay-layer">
+          <h3>Overlay Escuro</h3>
+          <p>background: rgba(10, 20, 40, 0.65)</p>
+        </div>
+      </div>
+      <!--
+        Padrão clássico: posição absolute sobre imagem de fundo.
+        RGBA permite ver a imagem por baixo com a intensidade desejada.
+      -->
+    </section>
+
+  </div>
+
+  <footer>
+    Frontend · Opacidade &amp; Sombras · Todos os exemplos são interativos
+  </footer>
+
+</body>
+</html>
